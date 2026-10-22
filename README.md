@@ -1,5 +1,3 @@
-# ALMA
-
 # Reqvio
 Research your rubric, not your luck: Reqvio checks a draft against its rubric and shows exactly where each requirement is met.
 

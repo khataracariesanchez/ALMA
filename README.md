@@ -27,7 +27,7 @@ https://youtu.be/...
 
 ### Tech stack
 - **Front end:** plain HTML, CSS, and JavaScript with no build step. Fonts are Bricolage Grotesque, Instrument Sans, and IBM Plex Mono.
-- **Back end:** `<add your framework, database, and hosting here>`
+- **Back end:** `Python`
 - **AI:** Gemma 4 through the ALMA-hosted Open WebUI API.
 
 ### How AI is used

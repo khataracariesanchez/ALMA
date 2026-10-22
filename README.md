@@ -1,4 +1,4 @@
-<img width="337" height="2268" alt="image" src="https://github.com/user-attachments/assets/65be25f9-f8da-416e-9d1f-84801dd54bdc" /># Reqvio
+## Reqvio
 Research your rubric, not your luck: Reqvio checks a draft against its rubric and shows exactly where each requirement is met.
 
 ## Team

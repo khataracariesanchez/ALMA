@@ -18,9 +18,7 @@ var P = {
   half:'M12 4a8 8 0 1 0 0 16z',
   upload:'M12 16V4 M7 9l5-5 5 5 M4 20h16',
   copy:'M9 9h11v11H9z M5 15V5h10',
-  arrow:'M5 12h14 M13 6l6 6-6 6',
-  moon:'M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z',
-  sun:'M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z M12 1v2 M12 21v2 M4.2 4.2l1.4 1.4 M18.4 18.4l1.4 1.4 M1 12h2 M21 12h2 M4.2 19.8l1.4-1.4 M18.4 5.6l1.4-1.4'
+  arrow:'M5 12h14 M13 6l6 6-6 6'
 };
 function ic(n,c){ return '<svg class="ic '+(c||'')+'" viewBox="0 0 24 24" aria-hidden="true"><path d="'+P[n]+'"/></svg>'; }
 var LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#388087"/><path d="M10 8h8l5 5v11H10z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M18 8v5h5" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M13 19l2.2 2.2L19.5 17" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -49,13 +47,6 @@ Finding: { id, title, status:'met'|'partial'|'missing'|'review', score:0-1, clos
   ctx:{paras:[... '@EV' ...], hl:index} }     // draft page text; '@EV' is replaced by ev.text
 User: state.user = { name, email }
 */
-
-/* ---------- theme (light / dark) ---------- */
-var THEME_KEY='reqvio-theme';
-try{ var savedTheme=localStorage.getItem(THEME_KEY); if(savedTheme) document.documentElement.setAttribute('data-theme',savedTheme); }catch(e){}
-function isDark(){ var t=document.documentElement.getAttribute('data-theme'); if(t) return t==='dark'; return !!(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches); }
-function applyTheme(t){ document.documentElement.setAttribute('data-theme',t); try{ localStorage.setItem(THEME_KEY,t); }catch(e){} }
-function themeBtn(){ var d=isDark(), l=d?'Switch to light mode':'Switch to dark mode'; return '<button class="iconbtn" data-act="theme" aria-label="'+l+'" title="'+l+'">'+ic(d?'sun':'moon')+'</button>'; }
 
 /* ---------- state ---------- */
 var state = {
@@ -89,7 +80,7 @@ function dueText(ws){
 
 /* ---------- views ---------- */
 function viewLanding(){
-  return '<div class="wrap"><div class="nav"><span class="logo">'+LOGO+'Reqvio</span><div class="cta">'+themeBtn()+'<button class="btn" data-act="auth" data-mode="signin">Sign in</button></div></div>'+
+  return '<div class="wrap"><div class="nav"><span class="logo">'+LOGO+'Reqvio</span><div class="cta"><button class="btn" data-act="auth" data-mode="signin">Sign in</button></div></div>'+
   '<section class="hero"><div><p class="eyebrow" style="margin-bottom:14px">Research collaboration and review</p>'+
   '<h1>Research together. Track progress. <em>Meet every requirement.</em></h1>'+
   '<p class="lead">Reqvio gives each research team a workspace for drafts, rubrics, and tasks. Upload your rubric and your draft, and the AI review shows which requirements are met, with the passage and page it found them on.</p>'+
@@ -113,7 +104,7 @@ function viewAuth(){
   '<div class="field"><label for="a-mail">Email</label><input id="a-mail" type="email" autocomplete="email" required></div>'+
   '<div class="field"><label for="a-pass">Password</label><input id="a-pass" type="password" autocomplete="current-password" required></div>'+
   '<button class="btn primary" type="submit">'+(up?'Create account':'Sign in')+'</button></form>'+ '</div>'+
-  '<div class="cta"><button class="btn small" data-act="landing">Back to home</button>'+themeBtn()+'</div></div>';
+  '<button class="btn small" data-act="landing">Back to home</button></div>';
 }
 function topbar(ws){
   var sw = '';
@@ -126,7 +117,7 @@ function topbar(ws){
   }
   return '<header class="topbar"><div class="in"><button class="logo" data-act="home" aria-label="Reqvio home">'+LOGO+'<span>Reqvio</span></button>'+sw+
   '<span class="grow"></span>'+
-  themeBtn()+'<button class="avatar" data-act="profile" aria-label="Profile and settings">'+esc(initials(state.user.name||'?'))+'</button></div></header>';
+  '<button class="avatar" data-act="profile" aria-label="Profile and settings">'+esc(initials(state.user.name||'?'))+'</button></div></header>';
 }
 function viewHome(){
   var n=state.ws.length;
@@ -348,7 +339,6 @@ var ACT={
   landing:function(){ go('landing'); },
   auth:function(t){ state.authMode=t.dataset.mode; state.view='auth'; render(false); },
   home:function(){ go('home'); },
-  theme:function(){ applyTheme(isDark()?'light':'dark'); render(true); },
   profile:function(){ go('profile'); },
   menu:function(){ state.menu=!state.menu; render(true); },
   openws:function(t){ state.wsId=t.dataset.id; state.page='overview'; state.sel=null; state.cite='draft'; state.filter='all'; state.ask=null; state.menu=false; state.view='ws'; render(false); },

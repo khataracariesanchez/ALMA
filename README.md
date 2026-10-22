@@ -58,7 +58,7 @@ Freemium, priced for students in USD and shown in pesos:
 | Research Team | $3.49/month or $31.99/year (about ₱213/month) | 40 shared checks, 10 projects, up to 5 members (4 minimum to subscribe), contribution tracking |
 | Research Pass | $2.99 one-time | 20 checks over 90 days |
 
-Payments would go through GCash, Maya, and cards. Our profit model (`Reqvio_Profit_Model.html`) shows monthly costs against revenue and where break-even falls. Costs are servers, AI, payment fees, and tax.
+Payments would go through GCash, Maya, and cards. Our profit model shows monthly costs against revenue and where break-even falls. Costs are servers, AI, payment fees, and tax.
 
 ### Competition
 General AI chat tools can comment on a draft but don't check it against your rubric, point to the page, or track a team. Plagiarism and grammar checkers look at writing quality, not requirements. Project tools like Trello or Google Docs handle tasks and writing but have no rubric review. Reqvio combines the three for student research teams.

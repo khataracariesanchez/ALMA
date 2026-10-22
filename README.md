@@ -16,8 +16,7 @@ Beyond the review, teams get:
 - **Join codes:** invite members to a workspace with a code.
 
 ## Demo video
-https://youtu.be/...
-
+[Watch Here](https://drive.google.com/file/d/1xlY5EYO-5vaFh8whwRvvihaS0mbyLI9A/view?fbclid=IwY2xjawVGqV9leHRuA2FlbQIxMQBwZG9mA3NydGMGYXBwX2lkATAAAR4vFDDoY74YuYAT5NkU86hivEcfLiTQxQ_dhTbU8YRGfw1syGO1CJSMVIIwNA_aem_RH8ZiMx_tbyapwRLik5ctw)
 ## Slides
 [View the slides on Canva](https://www.canva.com/design/DAHYtUyY9vc/9_yavBWj8AYa1usjRT57Qg/edit?fbclid=IwY2xjawVGkYJleHRuA2FlbQIxMQBwZG9mA3NydGMGYXBwX2lkATAAAR6StpuBSx_BgTBlLxnI8F1niHN4TccyB6lfntHUEQzNtNnXs0b9jRgI5e3p5w_aem_ulMjh4m2PgLlIeoVzw_ssg)
 
@@ -26,7 +25,7 @@ https://youtu.be/...
 ### Tech stack
 - **Front end:** plain HTML, CSS, and JavaScript with no build step. Fonts are Bricolage Grotesque, Instrument Sans, and IBM Plex Mono.
 - **Back end:** `Python`
-- **AI:** Gemma 4 through the ALMA-hosted Open WebUI API.
+- **AI:** Uses Claude Haiku (via the FUTURE FORGE Open WebUI API) to generate answers, and Qwen3-Embedding.
 
 ### How AI is used
 1. The rubric is read once to list its requirements.
